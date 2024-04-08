@@ -15,5 +15,6 @@
 
 int main(void)
 {
-    printf("hello");
+    char    *map[] = {"11", "00", NULL};
+    printf("%d", rectangular_map(map));
 }

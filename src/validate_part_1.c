@@ -58,7 +58,7 @@ static int count_character(char **map, char c)
     return (count_character);
 }
 
-int check_character(char **map)
+int number_character(char **map)
 {
     if ((count_character(map, 'P') != 1) || (count_character(map, 'E') != 1))
         return (CHARACTER_ERROR);
@@ -71,6 +71,8 @@ int map_characters(char **map)
 {
     int i;
     int j;
+
+    i = 0;
     while (map[i])
     {
         j = 0;
@@ -100,12 +102,7 @@ int rectangular_map(char **map)
             j++;
         i++;
     }
-    if (i == 0 && j == 0 && i == j)
+    if (i == 0 || j == 0 || i == j)
         return (RECTANGULAR_ERROR);
     return (NONE_ERROR);
-}
-
-int main(void)
-{
-    printf("hello");
 }

@@ -26,4 +26,11 @@
 /* keymaps */
 # define atalhos do teclado
 
+/* so_long functions */
+int main(void);
+//int check_extension(char *argv);
+//int number_character(char **map);
+//int map_characters(char **map);
+int rectangular_map(char **map);
+
 #endif
