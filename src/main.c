@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+#include <stdio.h>
 
-int main(int argc, char **argv)
+int main(void)
 {
-    
+    printf("hello");
 }

@@ -36,7 +36,7 @@ int check_extension(char *argv)
     return (NONE_ERROR);
 }
 
-static int count_character(char **map, char *c)
+static int count_character(char **map, char c)
 {
     int i;
     int j;
@@ -44,10 +44,10 @@ static int count_character(char **map, char *c)
 
     i = 0;
     count_character = 0;
-    while (map[i] != '\0')
+    while (map[i])
     {
         j = 0;
-        while (map[i][j] != '\0')
+        while (map[i][j])
         {
             if (map[i][j] == c)
                 count_character += 1;
@@ -60,8 +60,7 @@ static int count_character(char **map, char *c)
 
 int check_character(char **map)
 {
-    if (count_character(map, 'P') != 1) || 
-        (count_character(map, 'E') != 1)
+    if ((count_character(map, 'P') != 1) || (count_character(map, 'E') != 1))
         return (CHARACTER_ERROR);
     if (count_character(map, 'C') == 0)
         return (CHARACTER_ERROR);
@@ -72,13 +71,13 @@ int map_characters(char **map)
 {
     int i;
     int j;
-    while (map[i] != '\0')
+    while (map[i])
     {
         j = 0;
-        while (map[i][j] != '\0')
+        while (map[i][j])
         {
             if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
-                map[i][j] != 'E' && map[i][j] != 'P')
+                && map[i][j] != 'E' && map[i][j] != 'P')
                 return (CHARACTER_ERROR);
             j++;
         }
@@ -94,10 +93,10 @@ int rectangular_map(char **map)
 
     i = 0;
     j = 0;
-    while (map[i] != '\0')
+    while (map[i])
     {
         j = 0;
-        while (map[i][j] != '\0')
+        while (map[i][j])
             j++;
         i++;
     }
@@ -106,3 +105,7 @@ int rectangular_map(char **map)
     return (NONE_ERROR);
 }
 
+int main(void)
+{
+    printf("hello");
+}

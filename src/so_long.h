@@ -13,8 +13,7 @@
 #ifndef SO_LONG_H
 # define S0_LONG_H
 
-# include "libs/libft/libft.h"
-
+# include "../libs/libft/libft.h"
 
 /* errors */
 # define NONE_ERROR 1
@@ -26,3 +25,5 @@
 
 /* keymaps */
 # define atalhos do teclado
+
+#endif

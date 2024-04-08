@@ -1,8 +1,6 @@
 NAME = so_long
 
-SCRS =
-
-OBJS = $(SRC:.c=.o)
+SCRS = src/main.c src/validate_part_1.c
 
 CC = cc
 
@@ -14,16 +12,15 @@ LIBFT = libs/libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@make -C libs/libft
-	@$(CC) $(FLAGS) $(OBJS) libft/$(LIBFT) -o $(NAME)
+	@$(CC) $(FLAGS) $(SCRS) $(LIBFT) -o $(NAME)
 
 clean:
-	@make clean -C libft
-	$(RM) $(OBJS)
+	@make clean -C libs/libft
 
 fclean: clean
-	@make fclean -C libft
+	@make fclean -C libs/libft
 	$(RM) $(NAME)
 
 re: fclean all
