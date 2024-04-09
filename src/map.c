@@ -16,13 +16,15 @@ int error_messages(int error)
 {
     ft_putstr_fd("Error\n", 2);
     if (error == -1)
-        ft_putstr_fd("Wrong numbers of arguments, expected 2\n", 2);
+        ft_putstr_fd("Wrong numbers of arguments, expected 2.\n", 2);
     else if (error == -2)
-        ft_putstr_fd("Invalid extension path, expected .ber file\n", 2);
+        ft_putstr_fd("Invalid extension path, expected .ber file.\n", 2);
     else if (error == -3)
-        ft_putstr_fd("Invalid characters, must have one player and one exit, and at least one collectible\n", 2);
+        ft_putstr_fd("Invalid characters, must have one player and one exit, and at least one collectible.\n", 2);
     else if (error == -4)
-        ft_putstr_fd("The map is not retangular\n", 2);
+        ft_putstr_fd("The map is not retangular,\n", 2);
+    else if (error == -5)
+        ft_putstr_fd("The map is not surrounded by walls.\n", 2);
 }
 
  

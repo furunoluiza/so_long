@@ -15,6 +15,6 @@
 
 int main(void)
 {
-    char    *map[] = {"11", "00", NULL};
-    printf("%d", rectangular_map(map));
+    char    *map[] = {"0000", "0110", "0000", NULL};
+    printf("%d", check_wall(map));
 }

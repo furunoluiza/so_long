@@ -15,12 +15,15 @@
 
 # include "../libs/libft/libft.h"
 
+#include <stdio.h>
+
 /* errors */
 # define NONE_ERROR 1
 # define ARGS_ERROR -1
 # define EXTENSION_ERROR -2
 # define CHARACTER_ERROR -3
 # define RECTANGULAR_ERROR -4
+# define WALL_ERROR -5
 
 
 /* keymaps */
@@ -31,6 +34,7 @@ int main(void);
 //int check_extension(char *argv);
 //int number_character(char **map);
 //int map_characters(char **map);
-int rectangular_map(char **map);
+//int rectangular_map(char **map);
+int check_wall(char **map);
 
 #endif
