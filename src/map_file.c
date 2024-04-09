@@ -39,7 +39,7 @@ static char    **read_fd(char *map_ext)
 
     i = 0;
     num_lines = number_lines_fd(map_ext);
-    map = malloc (sizeof(char*) * (num_lines + 1)); //tem que dar free nisso dps
+    map = malloc(sizeof(char *) * (num_lines + 1)); //tem que dar free nisso dps
     if (!map)
     {
         error_messages(FD_ERROR);
@@ -55,10 +55,9 @@ static char    **read_fd(char *map_ext)
 
 char **open_fd(char *map_ext)
 {
-    int     fd;
     char    **map;
 
-    if (check_extension == EXTENSION_ERROR)
+    if (check_extension(map_ext) == EXTENSION_ERROR)
     {
         error_messages (EXTENSION_ERROR);
         exit(0);

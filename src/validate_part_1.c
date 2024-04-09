@@ -79,7 +79,7 @@ int map_characters(char **map)
         while (map[i][j])
         {
             if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
-                && map[i][j] != 'E' && map[i][j] != 'P')
+                && map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != '\n')
                 return (CHARACTER_ERROR);
             j++;
         }
@@ -106,3 +106,5 @@ int rectangular_map(char **map)
         return (RECTANGULAR_ERROR);
     return (NONE_ERROR);
 }
+
+// se n for igual a primeira linha tem que dar erro!

@@ -1,8 +1,8 @@
 NAME = so_long
 
-SCRS = src/main.c src/validate_part_1.c src/validate_part_2.c src/map.c
+SCRS = src/main.c src/validate_part_1.c src/validate_part_2.c src/map_file.c src/errors.c
 
-CC = cc
+CC = cc -g
 
 RM = rm -rf
 

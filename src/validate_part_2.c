@@ -21,7 +21,7 @@ static int wall_horizontal(char **map)
     j = 0;
     while (map[i][j])
     {
-        if (map[i][j] != '0')
+        if (map[i][j] != '1' && map[i][j] != '\n')
             return (1);
         j++;  
     }
@@ -31,7 +31,7 @@ static int wall_horizontal(char **map)
     j = 0;
     while (map[i][j])
     {
-        if (map[i][j] != '0')
+        if (map[i][j] != '1' && map[i][j] != '\n')
             return (1);
         j++;
     }
@@ -47,16 +47,17 @@ static int wall_vertical(char **map)
     j = 0;
     while (map[i][j])
         j++;
+    j -= 2;
     while (map[i])
     {
-        if (map[i][0] != '0')
+        if (map[i][0] != '1')
             return (1);
         i++;
     }
     i = 0;
     while (map[i])
     {
-        if (map[i][j - 1] != '0')
+        if (map[i][j] != '1')
             return (1);
         i++;
     }

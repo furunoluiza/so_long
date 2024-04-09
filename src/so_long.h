@@ -33,7 +33,7 @@
 # define atalhos do teclado
 
 /* open map functions */
-int open_fd(char *map_ext);
+char **open_fd(char *map_ext);
 int check_errors(char **map);
 int error_messages(int error);
 
