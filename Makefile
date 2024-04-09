@@ -1,6 +1,6 @@
 NAME = so_long
 
-SCRS = src/main.c src/validate_part_1.c src/validate_part_2.c
+SCRS = src/main.c src/validate_part_1.c src/validate_part_2.c src/map.c
 
 CC = cc
 

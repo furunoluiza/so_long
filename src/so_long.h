@@ -14,6 +14,7 @@
 # define S0_LONG_H
 
 # include "../libs/libft/libft.h"
+# include <fcntl.h>
 
 #include <stdio.h>
 
@@ -21,20 +22,26 @@
 # define NONE_ERROR 1
 # define ARGS_ERROR -1
 # define EXTENSION_ERROR -2
-# define CHARACTER_ERROR -3
-# define RECTANGULAR_ERROR -4
-# define WALL_ERROR -5
+# define FD_ERROR -3
+# define CHARACTER_ERROR -4
+# define RECTANGULAR_ERROR -5
+# define WALL_ERROR -6
+
 
 
 /* keymaps */
 # define atalhos do teclado
 
-/* so_long functions */
-int main(void);
-//int check_extension(char *argv);
-//int number_character(char **map);
-//int map_characters(char **map);
-//int rectangular_map(char **map);
+/* open map functions */
+int open_fd(char *map_ext);
+int check_errors(char **map);
+int error_messages(int error);
+
+/* validate functions */
+int check_extension(char *argv);
+int number_character(char **map);
+int map_characters(char **map);
+int rectangular_map(char **map);
 int check_wall(char **map);
 
 #endif

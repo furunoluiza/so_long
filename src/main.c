@@ -11,10 +11,15 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
-int main(void)
+int main(int argc, char **argv)
 {
-    char    *map[] = {"0000", "0110", "0000", NULL};
-    printf("%d", check_wall(map));
+    char    **map;
+
+    if (argc != 2)
+        return (error_messages(ARGS_ERROR));
+    map = open_fd(argv[1]);
+    if (check_errors(map) != NONE_ERROR)
+        exit(0);
+    return (0);
 }
