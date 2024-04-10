@@ -27,6 +27,8 @@ int error_messages(int error)
         ft_putstr_fd("The map is not retangular.\n", 2);
     else if (error == -6)
         ft_putstr_fd("The map is not surrounded by walls.\n", 2);
+    else if (error == -7)
+        ft_putstr_fd("The map has no valid path for winning.\n", 2);
     return (error);
 }
 
@@ -38,5 +40,7 @@ int check_errors(char **map)
         return (error_messages(RECTANGULAR_ERROR));
     else if (check_wall(map) == WALL_ERROR)
         return (error_messages(WALL_ERROR));
+    else if (playable_map(map) == PLAYABLE_ERROR)
+        return (error_messages(PLAYABLE_ERROR));
     return (NONE_ERROR);
 }

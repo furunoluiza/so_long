@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_part_1.c                                  :+:      :+:    :+:   */
+/*   valid_map_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 14:17:40 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/08 14:19:20 by lfuruno-         ###   ########.fr       */
+/*   Created: 2024/04/10 13:29:20 by lfuruno-          #+#    #+#             */
+/*   Updated: 2024/04/10 13:29:27 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int check_extension(char *argv)
     return (NONE_ERROR);
 }
 
-static int count_character(char **map, char c)
+int count_character(char **map, char c)
 {
     int i;
     int j;
