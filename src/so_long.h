@@ -32,12 +32,13 @@
 /* keymaps */
 # define atalhos do teclado
 
-/* open map functions */
+/* map functions */
 char **open_fd(char *map_ext);
-int check_errors(char **map);
-int error_messages(int error);
+char **copy_matrix(char **map)
 
 /* validate functions */
+int check_errors(char **map);
+int error_messages(int error);
 int check_extension(char *argv);
 int number_character(char **map);
 int map_characters(char **map);

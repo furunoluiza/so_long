@@ -66,7 +66,43 @@ char **open_fd(char *map_ext)
     return (map);
 }
 
- //vai armazenar cada linha da gnl em um array de strings
- // tem que saber quantas vezes a gnçl e chmada, quantas linhas tem
- // mallocar um array de strings
- // a primeira linha da matriz recebe o retorno da gnl -> guarda o ponteiro da gnl
+static char    *copy_array(char **map, char **copy_matrix, int i)
+{
+    int j;
+
+    j = 0;
+    while (map[i][j])
+        j++;
+    copy_matrix[i] = (char *)ft_calloc((j + 1), sizeof(char));
+    if (!copy_matrix[i])
+    {
+        //tem que dar free
+        return (NULL);
+    }
+    j = 0;
+    while (map[i][j])
+        copy_matrix[i][j] = map[i][j++];
+    copy_matrix[i][j] = '\0';
+    return (copy_matrix);
+}
+
+char **copy_matrix(char **map)
+{
+    int     i;
+    char    **copy_map;
+
+    i = 0;
+    while (map[i])
+        i++;
+    copy_map = (char **)ft_calloc((i + 1), sizeof(char *));
+    if (!copy_map)
+        return (NULL);
+    copy_map = NULL;
+    i = 0;
+    while (map[i])
+    {
+        copy_map = copy_array(map, copy_map, i);
+        i++;
+    }
+    return (copy_map);
+}
