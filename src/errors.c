@@ -24,7 +24,7 @@ int error_messages(int error)
     else if (error == -4)
         ft_putstr_fd("Invalid characters, must have one player and one exit, and at least one collectible.\n", 2);
     else if (error == -5)
-        ft_putstr_fd("The map is not retangular,\n", 2);
+        ft_putstr_fd("The map is not retangular.\n", 2);
     else if (error == -6)
         ft_putstr_fd("The map is not surrounded by walls.\n", 2);
     return (error);
