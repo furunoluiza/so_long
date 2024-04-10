@@ -40,5 +40,6 @@ int playable_map(char **map)
     if (copy_map->verify_collectible != 0 || copy_map->verify_exit == 0)
         return(PLAYABLE_ERROR);
     free_matrix(copy_map->map);
+    free(copy_map);
     return (NONE_ERROR);
 }

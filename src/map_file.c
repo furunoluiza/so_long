@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:05:21 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/09 17:05:26 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:20:04 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int     number_lines_fd(char *map_ext)
         error_messages(FD_ERROR);
         exit(0);
     }
-    while (get_next_line(fd))
+    while (get_next_line(fd)) //coloca isso dentro de uma variável -> problema com free
         number_lines += 1;
     close(fd);
     return (number_lines);
@@ -48,6 +48,7 @@ static char    **read_fd(char *map_ext)
     fd = open(map_ext, O_RDWR);
     while (num_lines--) //talvez segfault
         map[i++] = get_next_line(fd);
+	get_next_line(fd); //add isso aqui pra o problema de memoria
     map[i] = NULL;
     close(fd);
     return (map);
