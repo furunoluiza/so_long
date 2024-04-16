@@ -29,6 +29,7 @@ static int     number_lines_fd(char *map_ext)
     while (line != NULL)
     {
         line = get_next_line(fd);
+        free(line);
         number_lines += 1;
     }
     close(fd);

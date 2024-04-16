@@ -19,11 +19,11 @@ static void fill_map(t_map *copy_map, int x, int y)
     else
         printf("X: %d, Y: %d.\n", x, y);
     sleep(1);
-    //if (copy_map->map[x][y] == 'C')
-    //   copy_map->verify_collectible -= 1;
+    if (copy_map->map[x][y] == 'C')
+       copy_map->verify_collectible--;
     if (copy_map->map[x][y] == 'E')
     {
-        copy_map->verify_exit += 1;
+        copy_map->verify_exit = 1;
         copy_map->map[x][y] = '1';
     }
     if (x < 1 || x > copy_map->width || y < 1 || y > copy_map->height
