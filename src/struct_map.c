@@ -66,7 +66,7 @@ t_map   *struct_map(char **map)
     copy_map = ft_calloc(1, sizeof(t_map));
     copy_map->map = copy_matrix(map);
     copy_map->height = height(map);
-	copy_map->width = width(map); 
+	copy_map->width = width(map);
 	copy_map->x_player = xy_player(map, 'x');
 	copy_map->y_player = xy_player(map, 'y');
 	copy_map->num_collectible = count_character(map, 'C');

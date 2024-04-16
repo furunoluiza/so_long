@@ -16,6 +16,7 @@ static int     number_lines_fd(char *map_ext)
 {
     int     number_lines;
     int     fd;
+    char    *line;
 
     number_lines = 0;
     fd = open(map_ext, O_RDWR);
@@ -24,8 +25,12 @@ static int     number_lines_fd(char *map_ext)
         error_messages(FD_ERROR);
         exit(0);
     }
-    while (get_next_line(fd)) //coloca isso dentro de uma variável -> problema com free
+    line = get_next_line(fd);
+    while (line != NULL)
+    {
+        line = get_next_line(fd);
         number_lines += 1;
+    }
     close(fd);
     return (number_lines);
 }
@@ -46,9 +51,13 @@ static char    **read_fd(char *map_ext)
         exit(0);
     }
     fd = open(map_ext, O_RDWR);
-    while (num_lines--) //talvez segfault
-        map[i++] = get_next_line(fd);
-	get_next_line(fd); //add isso aqui pra o problema de memoria
+    while (num_lines > 0) //talvez segfault
+    {
+        map[i] = get_next_line(fd);
+        i++;
+        num_lines--;
+    }
+	get_next_line(fd);
     map[i] = NULL;
     close(fd);
     return (map);

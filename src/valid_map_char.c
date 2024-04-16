@@ -88,7 +88,7 @@ int map_characters(char **map)
     return (NONE_ERROR);
 }
 
-int rectangular_map(char **map)
+int rectangular_map(char **map) //isso ta com problema !!!
 {
     int i;
     int j;

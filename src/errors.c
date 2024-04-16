@@ -19,7 +19,7 @@ int error_messages(int error)
         ft_putstr_fd("Wrong numbers of arguments, expected 2.\n", 2);
     else if (error == -2)
         ft_putstr_fd("Invalid extension path, expected .ber file.\n", 2);
-    else if (error == - 3)
+    else if (error == -3)
         ft_putstr_fd("Error opening the map file.\n", 2);
     else if (error == -4)
         ft_putstr_fd("Invalid characters, must have one player and one exit, and at least one collectible.\n", 2);
@@ -42,5 +42,6 @@ int check_errors(char **map)
         return (error_messages(WALL_ERROR));
     else if (playable_map(map) == PLAYABLE_ERROR)
         return (error_messages(PLAYABLE_ERROR));
+    write(1, "o\n", 2);
     return (NONE_ERROR);
 }

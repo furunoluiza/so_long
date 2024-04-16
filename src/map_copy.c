@@ -37,21 +37,18 @@ static char    *copy_array(char *line)
     i = 0;
     while (line[i])
         i++;
-    printf("->>> i: %d\n", i);
     copy_line = (char *)ft_calloc((i + 1), sizeof(char));
     if (!copy_line)
     {
         free(copy_line);
         return (NULL);
     }
-    printf("->>> i: %d\n", i);
     while (line[i])
     {
         copy_line[i] = line[i];
         i++;
     }
     copy_line[i] = '\0';
-    printf("->>> i: %d\n", i);
     return (copy_line);
 }
 
