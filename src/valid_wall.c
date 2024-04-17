@@ -70,3 +70,31 @@ int check_wall(char **map)
         return (WALL_ERROR);
     return (NONE_ERROR);
 }
+
+static int size_line(char *s)
+{
+    int i = 0;
+    if (!s)
+        return (0);
+    while (s[i] && s[i] != '\n')
+        i++;
+    return (i);
+}
+
+int rectangular_map(char **map)
+{
+    int i;
+    int width;
+
+    i = 0;
+    width = size_line(map[0]);
+    while (map[i])
+    {
+        if (width != size_line(map[i]))
+            return (RECTANGULAR_ERROR);
+        i++;
+    }
+    if (i == width)
+        return (RECTANGULAR_ERROR);
+    return (NONE_ERROR);
+}

@@ -87,26 +87,3 @@ int map_characters(char **map)
     }
     return (NONE_ERROR);
 }
-
-int rectangular_map(char **map) //isso ta com problema !!!
-{
-    int i;
-    int j;
-    int line_size;
-
-    i = 0;
-    j = 0;
-    line_size = ft_strlen(map[i]);
-    while (map[i])
-    {
-        j = 0;
-        while (map[i][j])
-            j++;
-        if (line_size != j)
-            return (RECTANGULAR_ERROR);
-        i++;
-    }
-    if (i == 0 || j == 0 || i == j)
-        return (RECTANGULAR_ERROR);
-    return (NONE_ERROR);
-}

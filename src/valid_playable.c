@@ -14,11 +14,19 @@
 
 static void fill_map(t_map *copy_map, int x, int y)
 {
+    //printf("%c", copy_map->map[x][y]);
+    int i = 0;
+    while (copy_map->map[i])
+    {
+        printf("-> %s\n", copy_map->map[i]);
+        //printf("len: %li\n", ft_strlen(copy_map->map[i]));
+        i++;
+        printf("i = %d", i);
+    }
     if (x == copy_map->x_player && y == copy_map->y_player)
         printf("No começo.\n");
     else
         printf("X: %d, Y: %d.\n", x, y);
-    sleep(1);
     if (copy_map->map[x][y] == 'C')
        copy_map->verify_collectible--;
     if (copy_map->map[x][y] == 'E')

@@ -29,27 +29,27 @@ void free_matrix(char **matrix)
     matrix = NULL;
 }    
 
-static char    *copy_array(char *line)
+static char    **copy_array(char **map, char **copy_map, int i)
 {
-    int i;
-    char    *copy_line;
+    int j;
 
-    i = 0;
-    while (line[i])
-        i++;
-    copy_line = (char *)ft_calloc((i + 1), sizeof(char));
-    if (!copy_line)
+    j = 0;
+    while (map[i][j])
+        j++;
+    copy_map[i] = ft_calloc((j + 1), sizeof(char));
+    if (!copy_map[i])
     {
-        free(copy_line);
+        free_matrix(copy_map);
         return (NULL);
     }
-    while (line[i])
+    j = 0;
+    while (map[i][j])
     {
-        copy_line[i] = line[i];
-        i++;
+        copy_map[i][j] = map[i][j];
+        j++;
     }
-    copy_line[i] = '\0';
-    return (copy_line);
+    copy_map[i][j] = '\0';
+    return (copy_map);
 }
 
 char **copy_matrix(char **map)
@@ -63,12 +63,14 @@ char **copy_matrix(char **map)
     copy_map = (char **)ft_calloc((i + 1), sizeof(char *));
     if (!copy_map)
         return (NULL);
+    copy_map[i] = NULL;
     i = 0;
     while (map[i])
     {
-        copy_map[i] = copy_array(map[i]);
+        copy_map = copy_array(map, copy_map, i);
         i++;
     }
+    i = 0;
     return (copy_map);
 }
 
