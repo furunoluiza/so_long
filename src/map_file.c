@@ -28,8 +28,8 @@ static int     number_lines_fd(char *map_ext)
     line = get_next_line(fd);
     while (line != NULL)
     {
-        line = get_next_line(fd);
         free(line);
+        line = get_next_line(fd);
         number_lines += 1;
     }
     close(fd);

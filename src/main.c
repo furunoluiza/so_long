@@ -28,5 +28,6 @@ int main(int argc, char **argv)
     }*/
     if (check_errors(map) != NONE_ERROR)
         exit(0);
+    free_matrix(map);
     return (0);
 }
