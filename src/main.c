@@ -28,6 +28,7 @@ int main(int argc, char **argv)
     }*/
     if (check_errors(map) != NONE_ERROR)
         return(free_matrix(map), 1);
+    file_map(map);
     free_matrix(map);
     return (0);
 }

@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "../libs/libft/libft.h"
+# include "libs/minilibx/mlx.h"
 # include <fcntl.h>
 
 #include <stdio.h> //apagar??
@@ -29,7 +30,7 @@
 # define PLAYABLE_ERROR -7
 
 /* keymaps */
-# define atalhos do teclado
+//# define atalhos do teclado
 
 typedef struct s_map
 {
@@ -43,12 +44,25 @@ typedef struct s_map
     int     verify_exit;
 }           t_map;
 
+typedef struct s_window
+{
+    int     height;
+    int     width;
+    void    *mlxi;
+    void    *mlx_window;
+}           t_window;
+
+typedef struct s_image;
+{
+    t_window    *window;
+}               t_image;
+
 /* map functions */
 char **open_fd(char *map_ext);
 char **copy_matrix(char **map);
 void free_matrix(char **matrix);
 t_map   *struct_map(char **map);
-int playable_map(char **map);
+void    file_image(char **map);
 
 /* validate functions */
 int check_errors(char **map);
@@ -59,5 +73,6 @@ int count_character(char **map, char c);
 int map_characters(char **map);
 int rectangular_map(char **map);
 int check_wall(char **map);
+int playable_map(char **map);
 
 #endif
