@@ -42,6 +42,6 @@ int check_errors(char **map)
         return (error_messages(WALL_ERROR));
     else if (playable_map(map) == PLAYABLE_ERROR)
         return (error_messages(PLAYABLE_ERROR));
-    write(1, "o\n", 2);
+    write(1, "No errors\n", 10); //apagar!
     return (NONE_ERROR);
 }

@@ -16,7 +16,7 @@
 # include "../libs/libft/libft.h"
 # include <fcntl.h>
 
-#include <stdio.h>
+#include <stdio.h> //apagar??
 
 /* errors */
 # define NONE_ERROR 1

@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         i++;
     }*/
     if (check_errors(map) != NONE_ERROR)
-        exit(0);
+        return(free_matrix(map), 1);
     free_matrix(map);
     return (0);
 }

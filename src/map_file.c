@@ -45,14 +45,14 @@ static char    **read_fd(char *map_ext)
 
     i = 0;
     num_lines = number_lines_fd(map_ext);
-    map = malloc(sizeof(char *) * (num_lines + 1)); //tem que dar free nisso dps
+    map = malloc(sizeof(char *) * (num_lines + 1));
     if (!map)
     {
         error_messages(FD_ERROR);
         exit(0);
     }
     fd = open(map_ext, O_RDWR);
-    while (num_lines > 0) //talvez segfault
+    while (num_lines > 0)
     {
         map[i] = get_next_line(fd);
         i++;
