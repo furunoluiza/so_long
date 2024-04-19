@@ -55,7 +55,22 @@ typedef struct s_window
 typedef struct s_image;
 {
     t_window    *window;
+    char        *pl_left;
+    char        *pl_right;
+    char        *pl_left_att;
+    char        *pl_right_att;
+    char        *wall;
+    char        *exit;
+    char        *space;
+    char        *collectible;
 }               t_image;
+
+typedef struct s_cluster
+{
+    t_map       *info_map;
+    t_window    *window;
+    t_image     *image;
+}               t_cluster
 
 /* map functions */
 char **open_fd(char *map_ext);
