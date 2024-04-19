@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libs/libft/libft.h"
-# include "libs/minilibx/mlx.h"
+# include "../libs/minilibx/mlx.h"
 # include <fcntl.h>
 
 #include <stdio.h> //apagar??
@@ -46,13 +46,14 @@ typedef struct s_map
 
 typedef struct s_window
 {
+    char    **map;
     int     height;
     int     width;
     void    *mlxi;
     void    *mlx_window;
 }           t_window;
 
-typedef struct s_image;
+typedef struct s_image
 {
     t_window    *window;
     char        *pl_left;
@@ -67,17 +68,19 @@ typedef struct s_image;
 
 typedef struct s_cluster
 {
-    t_map       *info_map;
     t_window    *window;
     t_image     *image;
-}               t_cluster
+}               t_cluster;
 
 /* map functions */
 char **open_fd(char *map_ext);
 char **copy_matrix(char **map);
 void free_matrix(char **matrix);
+int height(char **map);
+int width(char  **map);
 t_map   *struct_map(char **map);
-void    file_image(char **map);
+t_cluster    *file_image(char **map);
+int    populate_window(t_cluster *info);
 
 /* validate functions */
 int check_errors(char **map);

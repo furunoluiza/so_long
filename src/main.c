@@ -15,6 +15,7 @@
 int main(int argc, char **argv)
 {
     char    **map;
+    t_cluster   *info;
     //int     i = 0;
  
     if (argc != 2)
@@ -28,7 +29,9 @@ int main(int argc, char **argv)
     }*/
     if (check_errors(map) != NONE_ERROR)
         return(free_matrix(map), 1);
-    file_map(map);
+    info = file_image(map);
+    populate_window(info);
+    mlx_loop(info->window->mlxi);
     free_matrix(map);
     return (0);
 }

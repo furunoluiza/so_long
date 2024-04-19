@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static int height(char **map)
+int height(char **map)
 {
     int i;
 
@@ -22,7 +22,7 @@ static int height(char **map)
     return (i);
 }
 
-static int width(char  **map)
+int width(char  **map)
 {
     int i;
     int j;

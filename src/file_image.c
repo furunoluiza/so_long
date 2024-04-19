@@ -12,19 +12,20 @@
 
 #include "so_long.h"
 
-static t_window    *struct_window(t_map *map)
+static t_window    *struct_window(char **map)
 {
     t_window    *window;
 
     window = ft_calloc(1, sizeof(t_window));
+    window->map = map;
     window->mlxi = mlx_init();
     if (!window->mlxi)
 	{
 		free(window);
 		return (NULL);
 	}
-    window->width = map->width;
-	window->height = map->height;
+    window->width = width(map);
+	window->height = height(map);
 	window->mlx_window = mlx_new_window(window->mlxi,
         64 * window->width, 64 * window->height, "so_long");
     return (window);
@@ -57,31 +58,24 @@ static t_image	*struct_image(t_window *window)
 	return (image);
 }
 
-t_cluster   cluster_structs(t_map *info_map, t_window *window, t_image *image)
+static t_cluster   *cluster_structs(t_window *window, t_image *image)
 {
     t_cluster   *info;
 
     info = malloc(sizeof(t_cluster));
-    info->info_map = info_map;
     info->window = window;
     info->image = image;
     return (info);
 }
 
-t_cluster    print_image(char **map)
+t_cluster    *file_image(char **map)
 {
-    int     i;
-    int     j;
-    t_map   *info_map;
     t_window    *window;
     t_image     *image;
     t_cluster      *info;
 
-    i = 0;
-    j = 0;
-    info_map = struct_map(map);
-    window = struct_window(info_map);
+    window = struct_window(map);
     image = struct_image(window);
-    info = cluster_structs(info_map, window, image);
+    info = cluster_structs(window, image);
     return (info);
 }
