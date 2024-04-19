@@ -70,7 +70,6 @@ char **copy_matrix(char **map)
         copy_map = copy_array(map, copy_map, i);
         i++;
     }
-    i = 0;
     return (copy_map);
 }
 

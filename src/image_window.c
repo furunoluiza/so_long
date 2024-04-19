@@ -41,7 +41,7 @@ int    populate_window(t_cluster *info)
     while (info->window->map[i])
     {
         j = 0;
-        printf("-> %s", info->window->map[i]);
+        //printf("-> %s", info->window->map[i]);
         while (info->window->map[i][j])
         {
             image_to_window(info, i, j, info->window->map[i][j]);
@@ -49,6 +49,5 @@ int    populate_window(t_cluster *info)
         }
         i++;
     }
-    mlx_loop(info->window->mlxi);
     return (0);
 }

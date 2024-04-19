@@ -70,6 +70,7 @@ static t_cluster   *cluster_structs(t_window *window, t_image *image)
 
 t_cluster    *file_image(char **map)
 {
+    //int i = 0;
     t_window    *window;
     t_image     *image;
     t_cluster      *info;
@@ -77,5 +78,11 @@ t_cluster    *file_image(char **map)
     window = struct_window(map);
     image = struct_image(window);
     info = cluster_structs(window, image);
+    /*while (window->map[i])
+    {
+        printf("-> %s", window->map[i]);
+        //printf("len: %li\n", ft_strlen(map[i]));
+        i++;
+    }*/
     return (info);
 }

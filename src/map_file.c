@@ -52,13 +52,12 @@ static char    **read_fd(char *map_ext)
         exit(0);
     }
     fd = open(map_ext, O_RDWR);
-    while (num_lines > 0)
+    while (i <= num_lines)
     {
         map[i] = get_next_line(fd);
         i++;
-        num_lines--;
     }
-	get_next_line(fd);
+	//get_next_line(fd);
     map[i] = NULL;
     close(fd);
     return (map);
@@ -74,5 +73,6 @@ char **open_fd(char *map_ext)
         exit(0);
     }
     map = read_fd(map_ext);
+    //printf("-> %s", map[2]);
     return (map);
 }

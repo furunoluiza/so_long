@@ -16,22 +16,20 @@ int main(int argc, char **argv)
 {
     char    **map;
     t_cluster   *info;
-    //int     i = 0;
+    int     i = 0;
  
     if (argc != 2)
         return (error_messages(ARGS_ERROR));
     map = open_fd(argv[1]);
-    /*while (map[i])
+    while (map[i])
     {
-        printf("-> %s", map[i]);
+        printf("-> %s", map[i++]);
         //printf("len: %li\n", ft_strlen(map[i]));
-        i++;
-    }*/
+    }
     if (check_errors(map) != NONE_ERROR)
         return(free_matrix(map), 1);
     info = file_image(map);
     populate_window(info);
-    mlx_loop(info->window->mlxi);
     free_matrix(map);
     return (0);
 }
