@@ -60,6 +60,7 @@ typedef struct s_all
     int     x_player;
     int     y_player;
     int     num_collectible;
+    int     count_moves;
     void    *mlxi;
     void    *mlx_window;
     void    *pl_left;

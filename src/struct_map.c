@@ -39,7 +39,7 @@ int	xy_player(char **map, char axis)
 	int		i;
 	int		j;
 
-	i = 0;, int key
+	i = 0;
 	while (map && map[i])
 	{
 		j = 0;

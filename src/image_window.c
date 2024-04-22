@@ -16,7 +16,7 @@ static void image_to_window(t_all *info, int i, int j, char c)
 {
     if (c == 'P')
         mlx_put_image_to_window(info->mlxi, info->mlx_window,
-         info->pl_left, j * 64, i * 64);
+         info->pl_right, j * 64, i * 64);
     else if (c == '1')
         mlx_put_image_to_window(info->mlxi, info->mlx_window,
          info->wall, j * 64, i * 64);
@@ -90,6 +90,7 @@ t_all    *struct_all(char **map)
     all->x_player = xy_player(map, 'x');
     all->y_player = xy_player(map, 'y');
     all->num_collectible = count_character(map, 'C');
+    all->count_moves = 0;
 	all->mlx_window = mlx_new_window(all->mlxi,
         64 * all->width, 64 * all->height, "so_long");
     struct_image(all);
