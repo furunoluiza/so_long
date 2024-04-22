@@ -8,8 +8,8 @@ SCRS = src/main.c \
 	   src/valid_map_char.c \
 	   src/valid_wall.c \
 	   src/valid_playable.c \
-	   src/file_image.c \
-	   src/image_window.c
+	   src/image_window.c \
+	   src/moves.c 
 
 CC = cc
 

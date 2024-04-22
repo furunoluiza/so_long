@@ -30,7 +30,15 @@
 # define PLAYABLE_ERROR -7
 
 /* keymaps */
-//# define atalhos do teclado
+# define ESC 65307
+# define UP 65362
+# define W 119
+# define DOWN 65364
+# define S 115
+# define RIGHT 65363
+# define D 100
+# define LEFT 65361
+# define A 97
 
 typedef struct s_map
 {
@@ -49,6 +57,9 @@ typedef struct s_all
     char    **map;
     int     height;
     int     width;
+    int     x_player;
+    int     y_player;
+    int     num_collectible;
     void    *mlxi;
     void    *mlx_window;
     void    *pl_left;
@@ -67,9 +78,11 @@ char **copy_matrix(char **map);
 void free_matrix(char **matrix);
 int height(char **map);
 int width(char  **map);
+int	xy_player(char **map, char axis);
 t_map   *struct_map(char **map);
 t_all    *struct_all(char **map);
 int    populate_window(t_all *info);
+int set_hooks(int key, t_all *all);
 
 /* validate functions */
 int check_errors(char **map);

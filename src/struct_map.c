@@ -34,12 +34,12 @@ int width(char  **map)
     return (j);
 }
 
-static int	xy_player(char **map, char axis)
+int	xy_player(char **map, char axis)
 {
 	int		i;
 	int		j;
 
-	i = 0;
+	i = 0;, int key
 	while (map && map[i])
 	{
 		j = 0;
