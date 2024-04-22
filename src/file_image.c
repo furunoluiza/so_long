@@ -12,77 +12,45 @@
 
 #include "so_long.h"
 
-static t_window    *struct_window(char **map)
-{
-    t_window    *window;
-
-    window = ft_calloc(1, sizeof(t_window));
-    window->map = map;
-    window->mlxi = mlx_init();
-    if (!window->mlxi)
-	{
-		free(window);
-		return (NULL);
-	}
-    window->width = width(map);
-	window->height = height(map);
-	window->mlx_window = mlx_new_window(window->mlxi,
-        64 * window->width, 64 * window->height, "so_long");
-    return (window);
-}
-
-static t_image	*struct_image(t_window *window)
+static void	struct_image(t_all *all)
 {
     int     height;
     int     width;
-	t_image	*image;
 
-	image = malloc(sizeof(t_image));
-	image->window = window;
-	image->pl_left = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/frog/frog_left.xpm", &height, &width);
-    image->pl_right = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/frog/frog_right.xpm", &height, &width);
-    image->pl_left_att = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/frog/frog_left_attack.xpm", &height, &width);
-    image->pl_right_att = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/frog/frog_right_attack.xpm", &height, &width);
-    image->wall = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/wall/wall.xpm", &height, &width);
-    image->exit = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/exit/exit.xpm", &height, &width);
-    image->space = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/empty_space/empty_space.xpm", &height, &width);
-    image->collectible = mlx_xpm_file_to_image(image->window->mlxi,
-			"../textures/collectible/collectible.xpm", &height, &width);
-	return (image);
+	all->pl_left = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_left.xpm", &height, &width);
+    all->pl_right = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_right.xpm", &height, &width);
+    all->pl_left_att = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_left_attack.xpm", &height, &width);
+    all->pl_right_att = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_right_attack.xpm", &height, &width);
+    all->wall = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/wall/wall.xpm", &height, &width);
+    all->exit = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/exit/exit.xpm", &height, &width);
+    all->space = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/empty_space/empty_space.xpm", &height, &width);
+    all->collectible = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/collectible/collectible.xpm", &height, &width);
 }
 
-static t_cluster   *cluster_structs(t_window *window, t_image *image)
+t_all    *struct_all(char **map)
 {
-    t_cluster   *info;
+    t_all   *all;
 
-    info = malloc(sizeof(t_cluster));
-    info->window = window;
-    info->image = image;
-    return (info);
-}
-
-t_cluster    *file_image(char **map)
-{
-    //int i = 0;
-    t_window    *window;
-    t_image     *image;
-    t_cluster      *info;
-
-    window = struct_window(map);
-    image = struct_image(window);
-    info = cluster_structs(window, image);
-    /*while (window->map[i])
-    {
-        printf("-> %s", window->map[i]);
-        //printf("len: %li\n", ft_strlen(map[i]));
-        i++;
-    }*/
-    return (info);
+    all = malloc(sizeof(t_all));
+    all->map = map;
+    all->mlxi = mlx_init();
+    if (!all->mlxi)
+	{
+		free(all);
+		return (NULL);
+	}
+    all->width = width(map) - 1;
+	all->height = height(map);
+	all->mlx_window = mlx_new_window(all->mlxi,
+        64 * all->width, 64 * all->height, "so_long");
+    struct_image(all);
+    return (all);
 }

@@ -44,33 +44,22 @@ typedef struct s_map
     int     verify_exit;
 }           t_map;
 
-typedef struct s_window
+typedef struct s_all
 {
     char    **map;
     int     height;
     int     width;
     void    *mlxi;
     void    *mlx_window;
-}           t_window;
-
-typedef struct s_image
-{
-    t_window    *window;
-    char        *pl_left;
-    char        *pl_right;
-    char        *pl_left_att;
-    char        *pl_right_att;
-    char        *wall;
-    char        *exit;
-    char        *space;
-    char        *collectible;
-}               t_image;
-
-typedef struct s_cluster
-{
-    t_window    *window;
-    t_image     *image;
-}               t_cluster;
+    void    *pl_left;
+    void    *pl_right;
+    void    *pl_left_att;
+    void    *pl_right_att;
+    void    *wall;
+    void    *exit;
+    void    *space;
+    void    *collectible;
+}           t_all;
 
 /* map functions */
 char **open_fd(char *map_ext);
@@ -79,8 +68,8 @@ void free_matrix(char **matrix);
 int height(char **map);
 int width(char  **map);
 t_map   *struct_map(char **map);
-t_cluster    *file_image(char **map);
-int    populate_window(t_cluster *info);
+t_all    *struct_all(char **map);
+int    populate_window(t_all *info);
 
 /* validate functions */
 int check_errors(char **map);

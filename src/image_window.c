@@ -12,39 +12,37 @@
 
 #include "so_long.h"
 
-static void image_to_window(t_cluster *info, int i, int j, char c)
+static void image_to_window(t_all *info, int i, int j, char c)
 {
-    //write(1, "oi\n", 2);
     if (c == 'P')
-        mlx_put_image_to_window(info->window->mlxi, info->window->mlx_window,
-         info->image->pl_left, j * 64, i * 64);
+        mlx_put_image_to_window(info->mlxi, info->mlx_window,
+         info->pl_left, j * 64, i * 64);
     else if (c == '1')
-        mlx_put_image_to_window(info->window->mlxi, info->window->mlx_window,
-         info->image->wall, j * 64, i * 64);
+        mlx_put_image_to_window(info->mlxi, info->mlx_window,
+         info->wall, j * 64, i * 64);
     else if (c == '0')
-        mlx_put_image_to_window(info->window->mlxi, info->window->mlx_window,
-         info->image->space, j * 64, i * 64);
+        mlx_put_image_to_window(info->mlxi, info->mlx_window,
+         info->space, j * 64, i * 64);
     else if (c == 'C')
-        mlx_put_image_to_window(info->window->mlxi, info->window->mlx_window,
-         info->image->collectible, j * 64, i * 64);
+        mlx_put_image_to_window(info->mlxi, info->mlx_window,
+         info->collectible, j * 64, i * 64);
     else if (c == 'E')
-        mlx_put_image_to_window(info->window->mlxi, info->window->mlx_window,
-         info->image->exit, j * 64, i * 64);
+        mlx_put_image_to_window(info->mlxi, info->mlx_window,
+         info->exit, j * 64, i * 64);
 }
 
-int    populate_window(t_cluster *info)
+int    populate_window(t_all *info)
 {
     int i;
     int j;
 
     i = 0;
-    while (info->window->map[i])
+    while (info->map[i])
     {
         j = 0;
-        //printf("-> %s", info->window->map[i]);
-        while (info->window->map[i][j])
+        while (info->map[i][j])
         {
-            image_to_window(info, i, j, info->window->map[i][j]);
+            image_to_window(info, i, j, info->map[i][j]);
             j++;
         }
         i++;

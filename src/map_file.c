@@ -73,6 +73,5 @@ char **open_fd(char *map_ext)
         exit(0);
     }
     map = read_fd(map_ext);
-    //printf("-> %s", map[2]);
     return (map);
 }
