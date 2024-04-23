@@ -12,16 +12,32 @@
 
 #include "so_long.h"
 
+int   free_all(t_all *all)
+{
+    if (!all)
+        return (0);
+    mlx_destroy_image(all->mlxi, all->pl_left);
+    mlx_destroy_image(all->mlxi, all->pl_right);
+    mlx_destroy_image(all->mlxi, all->pl_left_att);
+    mlx_destroy_image(all->mlxi, all->pl_right_att);
+    mlx_destroy_image(all->mlxi, all->wall);
+    mlx_destroy_image(all->mlxi, all->exit);
+    mlx_destroy_image(all->mlxi, all->space);
+    mlx_destroy_image(all->mlxi, all->collectible);
+    mlx_destroy_window(all->mlxi, all->mlx_window);
+    mlx_destroy_display(all->mlxi);
+    free(all->mlxi);
+    free(all);
+    exit(1);
+}
 
-
-static int verify_move(t_all *all, int height, int width)
+int verify_move(t_all *all, int height, int width)
 {
     if (all->map[height][width] == 'E')
     {
         if (all->num_collectible == 0)
         {
-            mlx_destroy_window(all->mlxi, all->mlx_window);
-            //free_all(all);
+            free_all(all);
             exit(0);
         }
         else
@@ -44,8 +60,7 @@ int set_hooks(int key, t_all *all)
         move_player_left(all);
     else if (key == ESC)
     {
-        mlx_destroy_window(all->mlxi, all->mlx_window);
-        //free_all(all);
+        free_all(all);
         exit(0);
     }
     return (0);

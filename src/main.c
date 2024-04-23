@@ -16,22 +16,16 @@ int main(int argc, char **argv)
 {
     char    **map;
     t_all   *all;
-    //int     i = 0;
  
     if (argc != 2)
         return (error_messages(ARGS_ERROR));
     map = open_fd(argv[1]);
-    /*while (map[i])
-    {
-        printf("-> %s", map[i++]);
-        //printf("len: %li\n", ft_strlen(map[i]));
-    }*/
     if (check_errors(map) != NONE_ERROR)
         return(free_matrix(map), 1);
     all = struct_all(map);
     populate_window(all);
     mlx_key_hook(all->mlx_window, set_hooks, all);
-	//mlx_hook(all->mlx_window, 17, 0, free_all, all);
+	mlx_hook(all->mlx_window, 17, 0, free_all, all);
     mlx_loop(all->mlxi);
     free_matrix(map);
     return (0);

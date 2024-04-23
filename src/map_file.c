@@ -45,6 +45,7 @@ static char    **read_fd(char *map_ext)
 
     i = 0;
     num_lines = number_lines_fd(map_ext);
+    //map = ft_calloc(1, (num_lines + 1));
     map = malloc(sizeof(char *) * (num_lines + 1));
     if (!map)
     {
@@ -57,7 +58,6 @@ static char    **read_fd(char *map_ext)
         map[i] = get_next_line(fd);
         i++;
     }
-	//get_next_line(fd);
     map[i] = NULL;
     close(fd);
     return (map);

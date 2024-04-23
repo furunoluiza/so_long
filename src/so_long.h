@@ -86,6 +86,8 @@ int move_player_up(t_all *all);
 int move_player_down(t_all *all);
 int move_player_right(t_all *all);
 int move_player_left(t_all *all);
+int verify_move(t_all *all, int height, int width);
+int free_all(t_all *all);
 t_map   *struct_map(char **map);
 t_all   *struct_all(char **map);
 

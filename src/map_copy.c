@@ -27,7 +27,7 @@ void free_matrix(char **matrix)
     }
     free(matrix);
     matrix = NULL;
-}    
+}
 
 static char    **copy_array(char **map, char **copy_map, int i)
 {
