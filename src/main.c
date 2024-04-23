@@ -27,6 +27,5 @@ int main(int argc, char **argv)
     mlx_key_hook(all->mlx_window, set_hooks, all);
 	mlx_hook(all->mlx_window, 17, 0, free_all, all);
     mlx_loop(all->mlxi);
-    free_matrix(map);
     return (0);
 }

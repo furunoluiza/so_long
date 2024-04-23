@@ -45,21 +45,22 @@ static char    **read_fd(char *map_ext)
 
     i = 0;
     num_lines = number_lines_fd(map_ext);
-    //map = ft_calloc(1, (num_lines + 1));
     map = malloc(sizeof(char *) * (num_lines + 1));
     if (!map)
+        return (NULL);
+    fd = open(map_ext, O_RDWR);
+    if (fd < 0)
     {
         error_messages(FD_ERROR);
-        exit(0);
+        return (NULL);
     }
-    fd = open(map_ext, O_RDWR);
-    while (i <= num_lines)
+    while (i < num_lines)
     {
         map[i] = get_next_line(fd);
         i++;
     }
     map[i] = NULL;
-    close(fd);
+    close (fd);
     return (map);
 }
 

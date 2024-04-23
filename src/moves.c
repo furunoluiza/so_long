@@ -27,6 +27,7 @@ int   free_all(t_all *all)
     mlx_destroy_window(all->mlxi, all->mlx_window);
     mlx_destroy_display(all->mlxi);
     free(all->mlxi);
+    free_matrix(all->map);
     free(all);
     exit(1);
 }

@@ -22,11 +22,9 @@ void free_matrix(char **matrix)
     while (i >= 0)
     {
         free(matrix[i]);
-        matrix[i] = NULL;
         i--;
     }
     free(matrix);
-    matrix = NULL;
 }
 
 static char    **copy_array(char **map, char **copy_map, int i)
