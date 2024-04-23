@@ -4,7 +4,6 @@ SCRS = src/main.c \
        src/map_copy.c \
 	   src/map_file.c \
 	   src/struct_map.c \
-	   src/errors.c \
 	   src/valid_map_char.c \
 	   src/valid_wall.c \
 	   src/valid_playable.c \

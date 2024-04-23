@@ -73,17 +73,21 @@ typedef struct s_all
     void    *collectible;
 }           t_all;
 
-/* map functions */
+/* so_long functions */
+void free_matrix(char **matrix);
 char **open_fd(char *map_ext);
 char **copy_matrix(char **map);
-void free_matrix(char **matrix);
 int height(char **map);
 int width(char  **map);
 int	xy_player(char **map, char axis);
-t_map   *struct_map(char **map);
-t_all    *struct_all(char **map);
-int    populate_window(t_all *info);
+int populate_window(t_all *info);
 int set_hooks(int key, t_all *all);
+int move_player_up(t_all *all);
+int move_player_down(t_all *all);
+int move_player_right(t_all *all);
+int move_player_left(t_all *all);
+t_map   *struct_map(char **map);
+t_all   *struct_all(char **map);
 
 /* validate functions */
 int check_errors(char **map);
