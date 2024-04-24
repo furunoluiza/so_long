@@ -59,6 +59,7 @@ static char	**read_fd(char *map_ext)
 		map[i] = get_next_line(fd);
 		i++;
 	}
+	get_next_line(fd);
 	map[i] = NULL;
 	close (fd);
 	return (map);

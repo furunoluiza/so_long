@@ -55,8 +55,6 @@ static void	struct_image(t_all *all)
 	int	height;
 	int	width;
 
-	all->pl_right = mlx_xpm_file_to_image(all->mlxi,
-			"./textures/frog/frog_right.xpm", &height, &width);
 	all->pl_right_att = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/frog/frog_right_attack.xpm", &height, &width);
 	all->wall = mlx_xpm_file_to_image(all->mlxi,
@@ -71,6 +69,7 @@ static void	struct_image(t_all *all)
 			"./textures/frog/frog_right.xpm", &height, &width);
 	all->player[1] = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/frog/frog_right_attack.xpm", &height, &width);
+	all->pl_right = all->player[0];
 }
 
 t_all	*struct_all(char **map)

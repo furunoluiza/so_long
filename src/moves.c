@@ -16,7 +16,6 @@ int	free_all(t_all *all)
 {
 	if (!all)
 		return (0);
-	mlx_destroy_image(all->mlxi, all->pl_right);
 	mlx_destroy_image(all->mlxi, all->pl_right_att);
 	mlx_destroy_image(all->mlxi, all->wall);
 	mlx_destroy_image(all->mlxi, all->exit);
