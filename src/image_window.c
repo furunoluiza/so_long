@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:42:50 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/24 16:56:20 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:53:21 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	image_to_window(t_all *info, int i, int j, char c)
 {
 	if (c == 'P')
 		mlx_put_image_to_window(info->mlxi, info->mlx_window,
-			info->pl_right_att, j * 64, i * 64);
+			info->pl_right, j * 64, i * 64);
 	else if (c == '1')
 		mlx_put_image_to_window(info->mlxi, info->mlx_window,
 			info->wall, j * 64, i * 64);
@@ -55,14 +55,8 @@ static void	struct_image(t_all *all)
 	int	height;
 	int	width;
 
-	all->pl_left = mlx_xpm_file_to_image(all->mlxi,
-			"./textures/frog/frog_left.xpm", &height, &width);
 	all->pl_right = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/frog/frog_right.xpm", &height, &width);
-	all->pl_left_att = mlx_xpm_file_to_image(all->mlxi,
-			"./textures/frog/frog_left_attack.xpm", &height, &width);
-	all->pl_right_att = mlx_xpm_file_to_image(all->mlxi,
-			"./textures/frog/frog_right_attack.xpm", &height, &width);
 	all->wall = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/wall/wall.xpm", &height, &width);
 	all->exit = mlx_xpm_file_to_image(all->mlxi,
@@ -71,6 +65,10 @@ static void	struct_image(t_all *all)
 			"./textures/empty_space/empty_space.xpm", &height, &width);
 	all->collectible = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/collectible/collectible.xpm", &height, &width);
+	all->player[0] = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_right.xpm", &height, &width);
+	all->player[1] = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_right_attack.xpm", &height, &width);
 }
 
 t_all	*struct_all(char **map)

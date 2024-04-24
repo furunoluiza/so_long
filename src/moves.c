@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:27:11 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/24 17:13:38 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:55:57 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ int	free_all(t_all *all)
 {
 	if (!all)
 		return (0);
-	mlx_destroy_image(all->mlxi, all->pl_left);
 	mlx_destroy_image(all->mlxi, all->pl_right);
-	mlx_destroy_image(all->mlxi, all->pl_left_att);
-	mlx_destroy_image(all->mlxi, all->pl_right_att);
 	mlx_destroy_image(all->mlxi, all->wall);
 	mlx_destroy_image(all->mlxi, all->exit);
 	mlx_destroy_image(all->mlxi, all->space);
@@ -46,6 +43,25 @@ int	verify_move(t_all *all, int height, int width)
 	}
 	else if (all->map[height][width] == '1')
 		return (0);
+	return (1);
+}
+
+int animation_player(t_all *all)
+{
+	static int	i;
+	static int	frames;
+
+	if (frames == 35000)
+	{
+		all->pl_right = all->player[i];
+		i++;
+		if (i == 2)
+			i = 0;
+		frames = 0;
+		mlx_put_image_to_window(all->mlxi, all->mlx_window,
+			all->pl_right, all->x_player * 64, all->y_player * 64);
+	}
+	frames++;
 	return (1);
 }
 

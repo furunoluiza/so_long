@@ -69,6 +69,7 @@ typedef struct s_all
 	void	*exit;
 	void	*space;
 	void	*collectible;
+	void	*player[2];
 }			t_all;
 
 /* so_long functions */
@@ -84,6 +85,7 @@ int		move_player_up(t_all *all);
 int		move_player_down(t_all *all);
 int		move_player_right(t_all *all);
 int		move_player_left(t_all *all);
+int		animation_player(t_all *all);
 int		verify_move(t_all *all, int height, int width);
 int		free_all(t_all *all);
 t_map	*struct_map(char **map);

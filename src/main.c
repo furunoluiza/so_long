@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 	all = struct_all(map);
 	populate_window(all);
 	mlx_key_hook(all->mlx_window, set_hooks, all);
+	mlx_loop_hook(all->mlxi, animation_player, all);
 	mlx_hook(all->mlx_window, 17, 0, free_all, all);
 	mlx_loop(all->mlxi);
 	return (0);

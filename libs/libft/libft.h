@@ -6,14 +6,14 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:31:59 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/24 16:50:00 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:38:39 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+#  define BUFFER_SIZE 42
 # endif
 
 # include <stdlib.h> 
