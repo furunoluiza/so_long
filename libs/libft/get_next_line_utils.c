@@ -6,13 +6,13 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:17:53 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/08 14:34:00 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:43:41 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	gnl_ft_strlen(const char *s)
+int	gnl_strlen(const char *s)
 {
 	int	len;
 
@@ -28,7 +28,7 @@ char	*gnl_ft_strdup(const char *s)
 	char	*p;
 
 	i = 0;
-	p = malloc ((gnl_ft_strlen(s) + 1) * sizeof (char));
+	p = malloc ((gnl_strlen(s) + 1) * sizeof (char));
 	if (!p)
 		return (NULL);
 	while (s[i] != '\0')
@@ -50,7 +50,7 @@ char	*gnl_ft_strjoin(char *s1, char *s2)
 		s1 = gnl_ft_strdup("");
 	i = 0;
 	j = 0;
-	p = (char *)malloc ((gnl_ft_strlen(s1) + gnl_ft_strlen(s2) + 1) * sizeof(char));
+	p = (char *)malloc ((gnl_strlen(s1) + gnl_strlen(s2) + 1) * sizeof(char));
 	if (!p)
 		return (NULL);
 	while (s1[i] != '\0')

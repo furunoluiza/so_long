@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:31:59 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/08 14:30:37 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:50:00 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*get_next_line(int fd);
-int		gnl_ft_strlen(const char *s);
+int		gnl_strlen(const char *s);
 char	*gnl_get_next_line(int fd);
 char	*gnl_ft_strdup(const char *s);
 char	*gnl_ft_strjoin(char *s1, char *s2);
