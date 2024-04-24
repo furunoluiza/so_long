@@ -57,6 +57,8 @@ static void	struct_image(t_all *all)
 
 	all->pl_right = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/frog/frog_right.xpm", &height, &width);
+	all->pl_right_att = mlx_xpm_file_to_image(all->mlxi,
+			"./textures/frog/frog_right_attack.xpm", &height, &width);
 	all->wall = mlx_xpm_file_to_image(all->mlxi,
 			"./textures/wall/wall.xpm", &height, &width);
 	all->exit = mlx_xpm_file_to_image(all->mlxi,

@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:27:11 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/24 17:55:57 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:03:20 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ int	free_all(t_all *all)
 	if (!all)
 		return (0);
 	mlx_destroy_image(all->mlxi, all->pl_right);
+	mlx_destroy_image(all->mlxi, all->pl_right_att);
 	mlx_destroy_image(all->mlxi, all->wall);
 	mlx_destroy_image(all->mlxi, all->exit);
 	mlx_destroy_image(all->mlxi, all->space);
 	mlx_destroy_image(all->mlxi, all->collectible);
+	mlx_destroy_image(all->mlxi, all->player[0]);
+	mlx_destroy_image(all->mlxi, all->player[1]);
 	mlx_destroy_window(all->mlxi, all->mlx_window);
 	mlx_destroy_display(all->mlxi);
 	free(all->mlxi);

@@ -61,9 +61,7 @@ typedef struct s_all
 	int		count_moves;
 	void	*mlxi;
 	void	*mlx_window;
-	void	*pl_left;
 	void	*pl_right;
-	void	*pl_left_att;
 	void	*pl_right_att;
 	void	*wall;
 	void	*exit;
