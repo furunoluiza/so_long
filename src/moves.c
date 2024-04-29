@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:27:11 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/24 20:03:20 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:24:20 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	verify_move(t_all *all, int height, int width)
 	return (1);
 }
 
-int animation_player(t_all *all)
+int	animation_player(t_all *all)
 {
 	static int	i;
 	static int	frames;

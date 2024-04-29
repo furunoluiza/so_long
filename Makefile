@@ -38,7 +38,4 @@ fclean: clean
 
 re: fclean all
 
-norma:
-	norminette $(SRCS) ./src/so_long.h ./libs/libft
-
 .PHONY: all clean fclean re

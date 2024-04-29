@@ -12,6 +12,14 @@
 
 #include "so_long.h"
 
+static void	print_moves(t_all *all)
+{
+	all->count_moves += 1;
+	ft_putstr_fd("Movement: ", 1);
+	ft_putnbr_fd(all->count_moves, 1);
+	ft_putchar_fd('\n', 1);
+}
+
 int	move_player_up(t_all *all)
 {
 	int	width;
@@ -27,9 +35,7 @@ int	move_player_up(t_all *all)
 		all->map[height][width] = 'P';
 		all->map[height + 1][width] = '0';
 		populate_window(all);
-		all->count_moves += 1;
-		ft_putnbr_fd(all->count_moves, 1);
-		ft_putchar_fd('\n', 1);
+		print_moves(all);
 	}
 	return (0);
 }
@@ -49,9 +55,7 @@ int	move_player_down(t_all *all)
 		all->map[height][width] = 'P';
 		all->map[height - 1][width] = '0';
 		populate_window(all);
-		all->count_moves += 1;
-		ft_putnbr_fd(all->count_moves, 1);
-		ft_putchar_fd('\n', 1);
+		print_moves(all);
 	}
 	return (0);
 }
@@ -71,9 +75,7 @@ int	move_player_right(t_all *all)
 		all->map[height][width] = 'P';
 		all->map[height][width - 1] = '0';
 		populate_window(all);
-		all->count_moves += 1;
-		ft_putnbr_fd(all->count_moves, 1);
-		ft_putchar_fd('\n', 1);
+		print_moves(all);
 	}
 	return (0);
 }
@@ -93,9 +95,7 @@ int	move_player_left(t_all *all)
 		all->map[height][width] = 'P';
 		all->map[height][width + 1] = '0';
 		populate_window(all);
-		all->count_moves += 1;
-		ft_putnbr_fd(all->count_moves, 1);
-		ft_putchar_fd('\n', 1);
+		print_moves(all);
 	}
 	return (0);
 }

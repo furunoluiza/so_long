@@ -6,7 +6,7 @@
 /*   By: lfuruno- <lfuruno-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:05:50 by lfuruno-          #+#    #+#             */
-/*   Updated: 2024/04/24 17:40:53 by lfuruno-         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:44:02 by lfuruno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ int	playable_map(char **map)
 	copy_map = struct_map(map);
 	fill_map(copy_map, copy_map->x_player, copy_map->y_player);
 	if (copy_map->verify_collectible != 0 || copy_map->verify_exit == 0)
+	{
+		free_matrix(copy_map->map);
+		free(copy_map);
 		return (PLAYABLE_ERROR);
+	}
 	free_matrix(copy_map->map);
 	free(copy_map);
 	return (NONE_ERROR);
