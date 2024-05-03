@@ -5,7 +5,7 @@ Welcome to the repository of "so_long" project for 42 School!
 </div>
 
 ## Project Description
-
+This is a graphic project to create a 2D game developed in C using the MinilibX graphic library. The game consists of a maze where the player must collect all collectible items (C) and reach the exit (E) to win.
 
 ## How to Use
 
@@ -14,14 +14,34 @@ Welcome to the repository of "so_long" project for 42 School!
 ```sh
 git@github.com:furunoluiza/so_long.git
 ```
+2. Enter the directory
+   
+```bash
+cd so_long
+```
 
-2. Compilation
+3. Install MinilibX library in the "libs" directory
+   
+```
+cd libs && git@github.com:42Paris/minilibx-linux.git minilibx && cd ..
+```
 
+4. Compilation
+   
 ```bash
 make
 ```
 
-3. Execute
+5. Execute
+   
 ```bash
 ./so_long maps/map.ber
 ```
+
+The game is initiated by a map file in the ```.ber``` format containing only the following valid characters:
+
+- E = _exit_ = royal victory
+- P = _player_ = frog
+- C = _collectibles_ = dragon-fly
+- 1 = _walls_ = water
+- 0 = _floor_ = rocks
