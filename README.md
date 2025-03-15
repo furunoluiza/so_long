@@ -23,7 +23,7 @@ cd so_long
 3. Install MinilibX library in the "libs" directory
    
 ```
-cd libs && git@github.com:42Paris/minilibx-linux.git minilibx && cd ..
+cd libs && git clone git@github.com:42Paris/minilibx-linux.git minilibx && cd ..
 ```
 
 4. Compilation
